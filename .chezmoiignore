@@ -2,17 +2,14 @@ README.md
 LICENSE
 
 {{ if ne .chezmoi.os "windows" }}
-Documents/Powershell
-.config/git
+Documents/
 .config/kanata
 .config/komorebi/komorebi.ahk
 .config/komorebi/komorebi.json
-.config/mpv
 .config/nushell
 .config/scoop
 .config/wezterm
-.config/yasb/config.yaml
-.config/yasb/styles.css
+.config/yasb/
 .local/bin/resize.ahk
 .kopiaignore
 {{ end }}
