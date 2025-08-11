@@ -1,0 +1,5 @@
+[mgr]
+prepend_keymap = [
+	{ on = "o", run = "create",             desc = "Create a file or directory" },
+	{ on = "l", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" }
+]
