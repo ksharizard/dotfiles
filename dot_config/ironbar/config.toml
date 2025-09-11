@@ -1,0 +1,35 @@
+name = "bar"
+position = "bottom"
+anchor_to_edges = true
+height = 8
+autohide = 300
+
+[[start]]
+type = "workspaces"
+all_monitors = false
+
+[[end]]
+type = "tray"
+
+[[end]]
+type = "volume"
+format = "{icon} {percentage}%"
+max_volume = 100
+on_scroll_up = "pactl set-sink-volume @DEFAULT_SINK@ +10%"
+on_scroll_down = "pactl set-sink-volume @DEFAULT_SINK@ -10%"
+
+[end.icons]
+volume_high = "󰕾"
+volume_medium = "󰖀"
+volume_low = "󰕿"
+muted = "󰝟"
+
+[end.truncate]
+mode = "end"
+length = 50
+
+[[end]]
+type = "clock"
+format = " %I:%M %p \n %d/%m/%y"
+
+

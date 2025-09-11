@@ -10,17 +10,58 @@
   ],
   "modules-center": [],
   "modules-right": [
-    "tray",
-    "pulseaudio",
+    "group/expand",
+    "wireplumber",
     "network",
     "battery",
-    "clock"
+    "clock",
+    "custom/padd"
   ],
+  // "modules-right": [
+  //   "group/expand-2",
+  //   "group/expand-4",
+  // ],
 
   "tray": {
       "icon-size": 18,
       "spacing": 3
   },
+
+  "custom/menu":{
+    "format": "󰅃",
+    "rotate": 90,
+  },
+
+  "custom/spacer":{
+    "format": "|"
+  },
+
+  "group/expand": {
+    "orientation": "horizontal",
+      "drawer": {
+          "transition-duration": 600,
+          "children-class": "not-power",
+        "transition-to-left": true,
+        //  "click-to-reveal": true
+      },
+      "modules": ["custom/menu","custom/spacer","tray"]
+  },
+
+  "wireplumber": {
+      "format": "{icon}    {volume}%",
+      "format-muted": "󰝟",
+      "tooltip-format": "{volume}%",
+      "scroll-step": 5,
+      "format-icons": ["", "", ""],
+      "on-click": "pwvucontrol"
+  },
+
+  "custom/padd": {
+      "format": "  ",
+      "interval" : "once",
+      "tooltip": false
+  },
+
 
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -71,61 +112,30 @@
     }
   },
 
-  "privacy": {
-    "icon-spacing": 4,
-    "icon-size": 18,
-    "transition-duration": 250,
-    "modules": [
-      {
-        "type": "screenshare",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-out",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-in",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      }
-    ],
-    "ignore-monitor": true,
-    "ignore": [
-      {
-        "type": "audio-in",
-        "name": "cava"
-      },
-      {
-        "type": "screenshare",
-        "name": "obs"
-      }
-    ]
-  },
   "network": {
-      "format-wifi": " {icon}",
+      "format-wifi": " {icon} ",
       "format-ethernet": "  ",
-      "format-disconnected": "󰌙",
+      "format-disconnected": "󰌙 ",
       "format-icons": [
           "󰤯 ",
           "󰤟 ",
           "󰤢 ",
           "󰤢 ",
           "󰤨 "
-      ]
+      ],
+
+      "tooltip-format": "{signalStrength}%"
   },
   "battery": {
       "states": {
-          "good": 95,
-          "warning": 30,
+          "good": 80,
+          "warning": 40,
           "critical": 20
       },
       "format": "{icon} {capacity}%",
-      "format-charging": " {capacity}%",
-      "format-plugged": " {capacity}%",
-      "format-alt": "{time} {icon}",
+      "format-charging": "  {capacity}%",
+      "format-plugged": "  {capacity}%",
+      "format-alt": "{time}  {icon}",
       "format-icons": [
           "󰂎",
           "󰁺",
@@ -140,19 +150,19 @@
           "󰁹"
       ]
   },
-  "pulseaudio": {
-      "max-volume": 150,
-      "scroll-step": 10,
-      "format": "{icon}",
-      "tooltip-format": "{volume}%",
-      "format-muted": " ",
-      "format-icons": {
-          "default": [
-              " ",
-              " ",
-              " "
-          ]
-      },
-      "on-click": "pwvucontrol"
-  }
+  // "pulseaudio": {
+  //     "max-volume": 150,
+  //     "scroll-step": 10,
+  //     "format": "{icon}",
+  //     "tooltip-format": "{volume}%",
+  //     "format-muted": " ",
+  //     "format-icons": {
+  //         "default": [
+  //             " ",
+  //             " ",
+  //             " "
+  //         ]
+  //     },
+  //     "on-click": "pwvucontrol"
+  // }
 }
