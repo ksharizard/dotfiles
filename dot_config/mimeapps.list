@@ -13,5 +13,3 @@ application/pdf=zen.desktop
 text/plain=nvim.desktop
 inode/directory=nemo.desktop
 application/x-gnome-saved-search=nemo.desktop
-x-scheme-handler/discord=vesktop.desktop
-
