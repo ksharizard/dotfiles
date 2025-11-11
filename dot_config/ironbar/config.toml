@@ -1,8 +1,7 @@
-name = "bar"
-position = "bottom"
-anchor_to_edges = true
-height = 8
+# name = "bar"
 autohide = 300
+popup_gap = 64
+popup_autohide = true
 
 [[start]]
 type = "workspaces"
@@ -10,6 +9,42 @@ all_monitors = false
 
 [[end]]
 type = "tray"
+icon_size = 32
+
+[[end]]
+type = "bluetooth"
+icon_size = 32
+
+[end.format]
+not_found = ""
+disabled = " Off"
+enabled = " On"
+connected = " {device_alias}"
+connected_battery = " {device_alias} • {device_battery_percent}%"
+
+[end.popup]
+scrollable = true
+header = " Enable Bluetooth"
+disabled = "{adapter_status}"
+
+[end.popup.device]
+header = "{device_alias}"
+header_battery = "{device_alias}"
+footer = "{device_status}"
+footer_battery = "{device_status} • Battery {device_battery_percent}%"
+
+[end.adapter_status]
+not_found = "No Bluetooth adapters found"
+enabled = "Bluetooth enabled"
+enabling = "Enabling Bluetooth..."
+disabled = "Bluetooth disabled"
+disabling = "Disabling Bluetooth..."
+
+[end.device_status]
+connected = "Connected"
+connecting = "Connecting..."
+disconnected = "Disconnect"
+disconnecting = "Disconnecting..."
 
 [[end]]
 type = "volume"
