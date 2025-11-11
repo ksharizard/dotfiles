@@ -7,5 +7,3 @@ set -g fish_greeting
 # Enable Vi keybindings
 fish_vi_key_bindings
 
-# Initialise zoxide
-zoxide init --cmd j fish | source

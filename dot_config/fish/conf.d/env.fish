@@ -22,6 +22,7 @@ set -gx PYTHONUSERBASE "$XDG_DATA_HOME/python"
 set -gx GOPATH "$XDG_DATA_HOME/go"
 set -gx GOMODCACHE "$XDG_CACHE_HOME/go/mod"
 set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
+set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 
 # Program settings
 set -gx FZF_DEFAULT_OPTS "--layout=reverse --height 40% --preview 'bat --color=always {}'"
