@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "bottom",
-  "height": 20,
+  "height": 36,
   "start_hidden": true,
 
   "modules-left": [
@@ -12,7 +12,6 @@
   "modules-right": [
     "group/expand",
     "wireplumber",
-    "network",
     "battery",
     "clock",
     "custom/padd"
@@ -53,7 +52,7 @@
       "tooltip-format": "{volume}%",
       "scroll-step": 5,
       "format-icons": ["", "", ""],
-      "on-click": "pwvucontrol"
+      "on-click": "pavucontrol"
   },
 
   "custom/padd": {
@@ -84,7 +83,7 @@
   },
 
   "clock": {
-    "format": "{:>%I:%M:%S \n %m/%d/%y}",
+    "format": "{:>%I:%M:%S \n %d/%m/%y}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
         "mode": "month",
@@ -110,6 +109,7 @@
         "on-scroll-up": "shift_up",
         "on-scroll-down": "shift_down"
     }
+
   },
 
   "network": {
@@ -150,19 +150,4 @@
           "󰁹"
       ]
   },
-  // "pulseaudio": {
-  //     "max-volume": 150,
-  //     "scroll-step": 10,
-  //     "format": "{icon}",
-  //     "tooltip-format": "{volume}%",
-  //     "format-muted": " ",
-  //     "format-icons": {
-  //         "default": [
-  //             " ",
-  //             " ",
-  //             " "
-  //         ]
-  //     },
-  //     "on-click": "pwvucontrol"
-  // }
 }
