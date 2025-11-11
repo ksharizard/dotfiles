@@ -2,11 +2,18 @@
   name = ksharizard
   email = code@kshdev.slmail.me
   signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICUJFhRcryj8My7BaTI2vvzKHUvzT83fh6/y4UqYn7Q8"
+[format]
+  signOff = yes
 [gpg]
   format = ssh
 [commit]
 	gpgsign = true
 [pull]
   rebase = false
+[push]
+  autoSetupRemote = true
+  followTags = yes
 [gpg "ssh"]
 	allowedSignersFile = ~/.ssh/allowed_signers
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
