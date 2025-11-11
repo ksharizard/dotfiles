@@ -2,7 +2,11 @@
 <h3 align="center">Chezmoi-Managed System Configurations</h3>
 
 ## 🖼️ Screenshots
+### Windows
 ![Windows](https://github.com/user-attachments/assets/e245b34c-d25e-460e-b5e1-a9285c851e98)
+
+### Linux
+![Linux](https://github.com/user-attachments/assets/171deaca-ca2b-4354-be86-099990fc6579)
 
 
 ## 🔧 Usage
