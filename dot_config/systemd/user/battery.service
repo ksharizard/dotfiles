@@ -1,0 +1,6 @@
+[Unit]
+Description=Checks battery level every 5 minutes
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/battery-warning.sh
