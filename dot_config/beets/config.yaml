@@ -1,0 +1,47 @@
+library: /config/musiclibrary.blb
+directory: /music
+# pip install beets[fetchart] beets[lyrics] beets[replaygain] beets[scrub]
+plugins: musicbrainz replaygain scrub zero info
+per_disc_numbering: yes
+asciify_paths: yes
+
+import:
+  copy: no
+
+badfiles:
+  check_on_import: yes
+
+item_fields:
+    multidisc: 1 if disctotal > 1 else 0
+
+aunique:
+    keys: albumartist album
+    disambiguators: albumtype albumdisambig releasegroupdisambig year label catalognum
+    bracket: '()'
+
+paths:
+  default: $albumartist/$album%aunique{}/%if{$multidisc,$disc.}$track $title
+  singleton: Non-Album/$artist/$title
+  comp: Compilations/$album%aunique{}/$track $title
+
+# fetchart:
+#   maxwidth: 500
+#   enforce_ratio: yes
+#   sources:
+#     - filesystem
+#     - coverart: release releasegroup
+#     - spotify
+#     - itunes
+#     - '*'
+#   deinterlace: yes
+#
+# lyrics:
+#   auto: yes
+#   synced: yes
+
+replaygain:
+  backend: ffmpeg
+
+zero:
+  fields: images comments lyrics
+  update_database: true
