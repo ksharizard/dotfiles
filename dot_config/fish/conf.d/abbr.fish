@@ -23,6 +23,9 @@ abbr -a --position anywhere -- -h '-h | bat -plhelp'
 # Miscellaneous
 # -----------------------------------------------------------------------------
 
+function last_history_item
+    echo $history[1]
+end
+abbr -a !! --position anywhere --function last_history_item
 abbr -a mirrors 'sudo reflector -c $(curl --silent ifconfig.co/country-iso) --sort rate -a 24 -f 5 -p https --save /etc/pacman.d/mirrorlist'
-# abbr -a trash 'gio trash'
 abbr -a wget 'wget --hsts-file=$XDG_CACHE_HOME/wget-hsts'

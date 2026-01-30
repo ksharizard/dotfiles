@@ -1,0 +1,80 @@
+binds {
+    Mod+T       { spawn "kitty"; }
+    Mod+S       { spawn "rofi" "-show" "drun"; }
+    Mod+Shift+L { spawn-sh "hyprlock & sleep 30 && niri msg action power-off-monitors"; }
+
+    // Overview
+    Mod+O repeat=false  { toggle-overview; }
+
+    // Exit
+    Mod+Q repeat=false  { close-window; }
+    Mod+Shift+Q         { quit; }
+
+    // Screenshots
+    Mod+Shift+S        { screenshot; }
+    Mod+Ctrl+Shift+S   { screenshot-screen; }
+    Mod+Alt+Shift+S    { screenshot-window; }
+
+    // Change focus of columns
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
+
+    // Move columns
+    Mod+Ctrl+H     { move-column-left; }
+    Mod+Ctrl+J     { move-window-down; }
+    Mod+Ctrl+K     { move-window-up; }
+    Mod+Ctrl+L     { move-column-right; }
+
+    // Resize column width
+    Mod+Left  { set-column-width "-10%"; }
+    Mod+Right { set-column-width "+10%"; }
+
+    // Resize column height
+    Mod+Shift+K        { set-window-height "-10%"; }
+    Mod+Shift+J        { set-window-height "+10%"; }
+
+    // Focus first or last columns
+    Mod+G             { focus-column-first; }
+    Mod+Shift+G       { focus-column-last; }
+
+    // Focus and move columns to workspaces
+    Mod+1         { focus-workspace 1; }
+    Mod+2         { focus-workspace 2; }
+    Mod+3         { focus-workspace 3; }
+    Mod+4         { focus-workspace 4; }
+    Mod+5         { focus-workspace 5; }
+    Mod+Shift+1   { move-column-to-workspace 1; }
+    Mod+Shift+2   { move-column-to-workspace 2; }
+    Mod+Shift+3   { move-column-to-workspace 3; }
+    Mod+Shift+4   { move-column-to-workspace 4; }
+    Mod+Shift+5   { move-column-to-workspace 5; }
+
+    // Move columns
+    Mod+B         { consume-or-expel-window-left; }
+    Mod+N         { consume-or-expel-window-right; }
+
+    // Consume one window from the right to the bottom of the focused column.
+    Mod+Shift+B   { consume-window-into-column; }
+    // Expel the bottom window from the focused column to the right.
+    Mod+Shift+N   { expel-window-from-column; }
+
+    // Change window layouts
+    Mod+F         { toggle-window-floating; }
+    Mod+Ctrl+F    { toggle-windowed-fullscreen; }
+    Mod+Shift+F   { fullscreen-window; }
+    Mod+M         { maximize-column; }
+    Mod+C         { center-column; }
+    Mod+V         { switch-focus-between-floating-and-tiling; }
+
+    // Volume control
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    // Brightness control
+    XF86MonBrightnessUp   allow-when-locked=true   { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true   { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+}

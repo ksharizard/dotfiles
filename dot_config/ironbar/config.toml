@@ -1,19 +1,24 @@
-# name = "bar"
-autohide = 300
-popup_gap = 64
+name = "bar"
+height = 21
+autohide = 200
 popup_autohide = true
 
+# [[start]]
+# type = "workspaces"
+# all_monitors = false
+
+# add launcher when it is fixed (right click menu bugs out)
 [[start]]
-type = "workspaces"
-all_monitors = false
+type = "launcher"
+show_names = false
+show_icons = true
+reversed = false
 
 [[end]]
 type = "tray"
-icon_size = 32
 
 [[end]]
 type = "bluetooth"
-icon_size = 32
 
 [end.format]
 not_found = ""
@@ -23,35 +28,18 @@ connected = " {device_alias}"
 connected_battery = " {device_alias} • {device_battery_percent}%"
 
 [end.popup]
-scrollable = true
-header = " Enable Bluetooth"
-disabled = "{adapter_status}"
+scrollable = false
 
-[end.popup.device]
-header = "{device_alias}"
-header_battery = "{device_alias}"
-footer = "{device_status}"
-footer_battery = "{device_status} • Battery {device_battery_percent}%"
-
-[end.adapter_status]
-not_found = "No Bluetooth adapters found"
-enabled = "Bluetooth enabled"
-enabling = "Enabling Bluetooth..."
-disabled = "Bluetooth disabled"
-disabling = "Disabling Bluetooth..."
-
-[end.device_status]
-connected = "Connected"
-connecting = "Connecting..."
-disconnected = "Disconnect"
-disconnecting = "Disconnecting..."
+[[end]]
+type = "battery"
+format = "{percentage}%"
 
 [[end]]
 type = "volume"
 format = "{icon} {percentage}%"
 max_volume = 100
-on_scroll_up = "pactl set-sink-volume @DEFAULT_SINK@ +10%"
-on_scroll_down = "pactl set-sink-volume @DEFAULT_SINK@ -10%"
+on_scroll_up = "pactl set-sink-volume @DEFAULT_SINK@ +2%"
+on_scroll_down = "pactl set-sink-volume @DEFAULT_SINK@ -2%"
 
 [end.icons]
 volume_high = "󰕾"
@@ -59,12 +47,8 @@ volume_medium = "󰖀"
 volume_low = "󰕿"
 muted = "󰝟"
 
-[end.truncate]
-mode = "end"
-length = 50
-
 [[end]]
 type = "clock"
 format = " %I:%M %p \n %d/%m/%y"
-
+format_popup = "%r"
 

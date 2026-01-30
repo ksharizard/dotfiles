@@ -1,0 +1,49 @@
+include "input.kdl"
+include "output.kdl"
+include "binds.kdl"
+include "windows.kdl"
+include "layout.kdl"
+
+// Autostart
+spawn-at-startup "ironbar"
+spawn-sh-at-startup "swaybg -i ~/.config/wal/static/black_purple_mountain.jpg"
+spawn-sh-at-startup "wlsunset -S 06:30 -s 22:00"
+
+// Theme
+cursor {
+    xcursor-theme "Dracula-cursors"
+    xcursor-size 18
+}
+
+screenshot-path "~/pics/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// No window decorations
+prefer-no-csd
+
+// Disable middle click paste
+clipboard {
+    disable-primary
+}
+
+// Disable startup hotkey-overlay
+hotkey-overlay {
+    skip-at-startup
+}
+
+// Focus app on clicking tray or notification
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+// Put swaybg inside the overview backdrop.
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+
+// Optionally, disable the workspace shadows in the overview.
+overview {
+    workspace-shadow {
+        off
+    }
+}
