@@ -15,23 +15,34 @@ Documents/
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
+.config/btop
 .config/dunst
 .config/feh
+.config/fish
 .config/fontconfig
 .config/gtk-2.0
 .config/gtk-3.0
+.config/gtk-4.0
+.config/hypr
+.config/ironbar
+.config/kitty
 .config/newsboat
+.config/niri
+.config/npm
 .config/paru
 .config/picom
 .config/pipewire
 .config/gwe
+.config/rofi
 .config/shell
 .config/sxhkd
 .config/systemd
 .config/tmux
 .config/x11
+.config/yazi
 .config/ytfzf
 .config/zsh
+.config/wgetrc
 .config/mimeapps.list
 .config/user-dirs.dirs
 .local/bin/statusbar
