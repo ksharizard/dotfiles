@@ -1,0 +1,91 @@
+[app]
+replaygain = 'album'
+desktop_notifications = false
+discord_rich_presence = false
+mouse_support = true
+
+[theme]
+subtle = ['#D9DCCF', '#6B6B6BFF']
+highlight = ['#874BFD', '#7D56F4']
+special = ['#43BF6D', '#73F59F']
+filtered = ['#A9A9A9', '#555555']
+
+[filters]
+titles = []
+artists = []
+album_artists = []
+min_duration = 0
+genres = []
+notes = []
+paths = []
+max_play_count = 0
+exclude_favorites = false
+max_rating = 1
+
+[keybinds]
+[keybinds.global]
+cycle_focus_next = ['tab']
+cycle_focus_prev = ['shift+tab']
+back = ['h']
+help = ['?']
+quit = ['q']
+hard_quit = ['ctrl+c']
+
+[keybinds.navigation]
+up = ['k', 'up']
+down = ['j', 'down']
+top = ['gg']
+bottom = ['G']
+select = ['enter']
+play_shuffeled = ['alt+enter']
+
+[keybinds.search]
+focus_search = ['/']
+filter_next = ['ctrl+n']
+filter_prev = ['ctrl+b']
+
+[keybinds.library]
+add_to_playlist = ['A']
+add_rating = ['r']
+go_to_album = ['ga']
+go_to_artist = ['gr']
+
+[keybinds.media]
+play_pause = ['p', 'P', ' ']
+next = ['>']
+prev = ['<']
+shuffle = ['S']
+loop = ['R']
+restart = ['w']
+rewind = ['[']
+forward = [']']
+volume_up = ['+']
+volume_down = ['-']
+
+[keybinds.queue]
+toggle_queue_view = ['Q']
+queue_next = ['N']
+queue_last = ['a']
+remove_from_queue = ['d']
+clear_queue = ['D']
+move_up = ['K']
+move_down = ['J']
+
+[keybinds.favorites]
+toggle_favorite = ['f']
+view_favorites = ['F']
+
+[keybinds.other]
+toggle_notifications = ['s']
+create_share_link = ['ctrl+s']
+
+[columns]
+track_number = true
+title = true
+artist = true
+album = true
+year = false
+genre = false
+rating = true
+play_count = true
+duration = true
