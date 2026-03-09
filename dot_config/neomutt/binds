@@ -1,0 +1,96 @@
+# vim: filetype=muttrc
+
+# General rebindings
+# vi binds
+## h to exit in every menu, l to go deeper, j and k for up and down, g and G for top and bottom
+bind pager,browser			h			exit
+bind attach,alias			h			exit
+bind pager				l			view-attachments
+bind pager 				k 			previous-line
+bind pager 				j 			next-line
+bind pager				g			top
+bind pager				G			bottom
+bind index				j			next-entry
+bind index				k			previous-entry
+bind attach,index 			g 			first-entry
+bind attach,index 			G 			last-entry
+bind index				l			display-message
+bind attach				l			view-attach
+bind browser,alias			l			select-entry
+bind index				/			search
+## default binding for limit is l
+bind index				?			limit
+## default binding for help is ?
+bind index,pager,attach			<F1>			help
+## default binding for header view (toggle-weed) is h
+bind pager				H			display-toggle-weed
+bind attach,index,pager 		\CD 			next-page
+bind attach,index,pager 		\CU 			previous-page
+bind index "r" imap-fetch-mail
+
+# bind index h noop
+# bind browser h goto-parent
+# bind pager,attach h exit
+# bind pager j next-line
+# bind pager k previous-line
+# bind pager l view-attachments
+# bind index l display-message
+# bind attach l view-mailcap
+# bind attach <return> view-mailcap
+# bind browser l select-entry
+# bind pager,browser G bottom-page
+# bind index G last-entry
+# bind index g noop
+# bind pager,browser gg top-page
+# bind index gg first-entry
+# bind index,pager,browser u half-up
+# bind index,pager,browser d half-down
+bind index D delete-message
+bind index \Cr undelete-message
+bind index n next-new-then-unread
+
+bind editor <space> noop
+# bind pager c imap-fetch-mail
+# bind index L limit
+bind index,pager R group-reply
+bind editor B complete-query
+
+# Mouse
+bind index \031 previous-undeleted	# Mouse wheel
+bind index \005 next-undeleted		# Mouse wheel
+bind pager \031 previous-line		# Mouse wheel
+bind pager \005 next-line		# Mouse wheel
+
+# sidebar mappings
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+bind index,pager \Co sidebar-open
+bind index,pager \Cp sidebar-prev-new
+bind index,pager \Cn sidebar-next-new
+bind index,pager <Tab> sidebar-toggle-visible
+
+# global index and pager shortcuts
+bind index,pager @ compose-to-sender
+bind index,pager D purge-message
+bind index O sync-mailbox
+macro index o "<shell-escape>mbsync -a<enter>"
+bind index <space> collapse-thread
+bind index a read-thread
+
+# Email completion bindings
+bind editor <Tab> complete-query
+bind editor ^T complete
+
+# Press A to add contact to Khard address book
+# macro index,pager A \
+#     "<pipe-message>khard add-email<return>" \
+#     "add the sender email address to khard"
+
+# link to mailcap file
+# open attachments with mailcap with <return>
+bind attach <return> view-mailcap
+macro attach s '<save-entry> <bol>~/Documents/attachments/<eol>' 'save attachment'
+# save attachments to a folder
+
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"

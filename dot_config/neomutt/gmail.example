@@ -1,0 +1,26 @@
+# Replace foo with email and bar with app password
+# Gmail
+set from = "foo@gmail.com"
+set imap_user = "foo@gmail.com"
+set smtp_url = "smtps://foo@gmail.com@smtp.gmail.com:465/"
+set smtp_authenticators = 'gssapi:login'
+set imap_pass = "bar"
+set smtp_pass = "bar"
+
+# My mailboxes
+# set folder = "imaps://imap.gmail.com:993/[Gmail]"
+# set spool_file = "+All Mail"
+# set postponed = "+Drafts"
+# set record = "+Sent Mail"
+# set trash = "+Trash"
+#
+# mailboxes =Important =Starred =Drafts ="Sent Mail" =Spam =Trash
+
+# Mailbox (synced with isync)
+set mbox_type = Maildir
+set folder = "~/.local/share/email"
+set spool_file = "+[Gmail]/All Mail"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"
+mailboxes ="[Gmail]/All Mail" ="[Gmail]/Starred" ="[Gmail]/Important" ="[Gmail]/Drafts" ="[Gmail]/Sent Mail" ="[Gmail]/Trash" ="[Gmail]/Spam" =Inbox
