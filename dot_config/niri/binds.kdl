@@ -1,6 +1,7 @@
 binds {
     Mod+T       { spawn "kitty"; }
     Mod+S       { spawn "rofi" "-show" "drun"; }
+    Mod+semicolon      { spawn-sh "rofimoji --action type copy"; }
     Mod+Shift+L { spawn-sh "hyprlock & sleep 30 && niri msg action power-off-monitors"; }
 
     // Overview

@@ -1,7 +1,8 @@
 workspace "browser"
 workspace "dev"
 workspace "media"
-workspace "chat"
+workspace "game"
+workspace "misc"
 
 window-rule {
     match app-id=r#"^zen$"#
@@ -12,6 +13,11 @@ window-rule {
 window-rule {
     match app-id=r#"^brave$"#
     open-on-workspace "browser"
+}
+
+window-rule {
+    match app-id=r#"^obsidian$"#
+    open-on-workspace "dev"
 }
 
 window-rule {
@@ -27,13 +33,13 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^obsidian$"#
-    open-on-workspace "dev"
+    match app-id=r#"^BeeperTexts$"#
+    open-on-workspace "media"
 }
 
 window-rule {
-    match app-id=r#"^BeeperTexts$"#
-    open-on-workspace "chat"
+    match app-id=r#"^steam$"#
+    open-on-workspace "game"
 }
 
 window-rule {
@@ -42,3 +48,10 @@ window-rule {
     default-floating-position x=20 y=20 relative-to="bottom-right"
 }
 
+window-rule {
+    match app-id=r#"^mpv$"#
+    open-floating true
+    default-floating-position x=20 y=20 relative-to="bottom-right"
+    default-column-width { fixed 640; }
+    default-window-height { fixed 360; }
+}
