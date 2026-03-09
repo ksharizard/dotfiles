@@ -3,7 +3,6 @@ LICENSE
 
 {{ if ne .chezmoi.os "windows" }}
 Documents/
-.config/kanata
 .config/komorebi/komorebi.ahk
 .config/komorebi/komorebi.json
 .config/nushell
@@ -26,6 +25,7 @@ Documents/
 .config/hypr
 .config/ironbar
 .config/kitty
+.config/neomutt
 .config/newsboat
 .config/niri
 .config/npm
@@ -35,17 +35,20 @@ Documents/
 .config/gwe
 .config/rofi
 .config/shell
+.config/subtui
 .config/sxhkd
 .config/systemd
 .config/tmux
 .config/x11
 .config/yazi
 .config/ytfzf
+.config/yt-x
 .config/zsh
 .config/wgetrc
 .config/mimeapps.list
 .config/user-dirs.dirs
-.local/bin/statusbar
-.local/bin/*.sh
-.local/share/char/*
+.config/wgetrc
+.local/bin/**
+.local/share/icons
+.local/share/themes
 {{ end }}
