@@ -1,0 +1,30 @@
+# Replace foo with email and bar with password
+IMAPAccount gmail
+Host imap.gmail.com
+User foo@gmail.com
+Pass "bar"
+TLSType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+SubFolders Verbatim
+Path ~/.local/share/email/
+Inbox ~/.local/share/email/Inbox
+
+Channel gmail
+Far :gmail-remote:
+Near :gmail-local:
+Create Both
+Expunge Both
+Patterns *
+SyncState *
+
+
+# Or include everything
+# Sync the movement of messages between folders and deletions, add after making sure the sync works
+#Expunge Both
+# Save the synchronization state files in the relevant directory
+#SyncState *
