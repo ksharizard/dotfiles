@@ -65,6 +65,7 @@ bind pager \005 next-line		# Mouse wheel
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cj sidebar-next
 bind index,pager \Co sidebar-open
+bind index,pager \Cl sidebar-open
 bind index,pager \Cp sidebar-prev-new
 bind index,pager \Cn sidebar-next-new
 bind index,pager <Tab> sidebar-toggle-visible
