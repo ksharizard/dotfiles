@@ -26,10 +26,10 @@ set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 set -gx _JAVA_OPTIONS "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 set -gx NODE_REPL_HISTORY "$XDG_DATA_HOME"/node_repl_history
 set -gx XCURSOR_PATH "$XDG_DATA_HOME/icons"
-set -gx PULSE_COOKIE "$XDG_CONFIG_DIR/pulse/cookie"
+set -gx W3M_DIR "$XDG_STATE_HOME/w3m"
 
 # Program settings
-set -gx FZF_DEFAULT_OPTS "--layout=reverse --height 40% --preview 'bat --color=always {}'"
+set -gx FZF_DEFAULT_OPTS "--layout reverse --height 40% --preview 'bat --color=always {}' --preview-window 'hidden' --bind 'ctrl-p:toggle-preview'"
 set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 set -gx QT_QPA_PLATFORMTHEME gtk3
 set -gx GTK_THEME Dracula
