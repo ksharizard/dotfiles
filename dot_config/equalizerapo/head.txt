@@ -1,0 +1,3 @@
+Device:  Speakers High Definition Audio Device {f3878899-f90a-4190-bf61-6d12ca865bb3}
+# Include: KZ Merga Filters.txt
+# Include: edx.txt

@@ -3,6 +3,7 @@ LICENSE
 
 {{ if ne .chezmoi.os "windows" }}
 Documents/
+.config/equalizerapo
 .config/komorebi/komorebi.ahk
 .config/komorebi/komorebi.json
 .config/nushell
