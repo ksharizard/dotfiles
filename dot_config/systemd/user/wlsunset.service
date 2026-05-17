@@ -1,0 +1,11 @@
+[Unit]
+Description=wlsunset
+After=graphical-session.target
+
+[Service]
+ExecStart=wlsunset -S 06:30 -s 22:00
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target
