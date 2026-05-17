@@ -1,0 +1,9 @@
+[opener]
+flac-player = [
+    { run = 'mpv "$@"', desc = "Play FLAC in MPV", orphan = true, for = "unix" }
+]
+
+[open]
+prepend_rules = [
+    { mime = "audio/*", use = ["flac-player"] }
+]

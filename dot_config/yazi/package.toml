@@ -3,5 +3,10 @@ use = "yazi-rs/plugins:smart-enter"
 rev = "de53d90"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
+[[plugin.deps]]
+use = "boydaihungst/gvfs"
+rev = "3abc0a2"
+hash = "eed89e75671723c8f9390a2862af0e4e"
+
 [flavor]
 deps = []
