@@ -7,7 +7,7 @@
 [gpg]
   format = ssh
 [commit]
-	gpgsign = true
+  gpgsign = true
 [pull]
   rebase = false
 [push]
@@ -18,4 +18,4 @@
 ; [url "ssh://git@github.com/"]
 ;   insteadOf = https://github.com/
 [init]
-	defaultBranch = main
+  defaultBranch = main
