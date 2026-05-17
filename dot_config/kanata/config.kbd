@@ -1,5 +1,6 @@
 (defcfg
   process-unmapped-keys yes
+  concurrent-tap-hold true
 )
 
 (defsrc
@@ -36,5 +37,9 @@
 
   slw (movemouse-speed 50)
   vsl (movemouse-speed 25)
+)
+
+(defchordsv2
+  (lsft lmet f23) menu 10 all-released ()
 )
 
