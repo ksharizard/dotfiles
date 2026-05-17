@@ -33,8 +33,8 @@ binds {
     Mod+Right { set-column-width "+10%"; }
 
     // Resize column height
-    Mod+Shift+K        { set-window-height "-10%"; }
-    Mod+Shift+J        { set-window-height "+10%"; }
+    Mod+Up       { set-window-height "-10%"; }
+    Mod+Down        { set-window-height "+10%"; }
 
     // Focus first or last columns
     Mod+G             { focus-column-first; }
@@ -53,6 +53,7 @@ binds {
     Mod+Shift+5   { move-column-to-workspace 5; }
 
     // Move columns
+    Mod+W { toggle-column-tabbed-display; }
     Mod+B         { consume-or-expel-window-left; }
     Mod+N         { consume-or-expel-window-right; }
 
@@ -63,9 +64,11 @@ binds {
 
     // Change window layouts
     Mod+F         { toggle-window-floating; }
-    Mod+Ctrl+F    { toggle-windowed-fullscreen; }
-    Mod+Shift+F   { fullscreen-window; }
+
+    Mod+Space     { spawn "niri-float-sticky" "-ipc" "toggle_sticky"; }
+    Mod+Shift+F    { toggle-windowed-fullscreen; }
     Mod+M         { maximize-column; }
+    Mod+Shift+M   { fullscreen-window; }
     Mod+C         { center-column; }
     Mod+V         { switch-focus-between-floating-and-tiling; }
 
@@ -76,6 +79,8 @@ binds {
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     // Brightness control
-    XF86MonBrightnessUp   allow-when-locked=true   { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true   { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp   allow-when-locked=true   { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
+    XF86MonBrightnessDown allow-when-locked=true   { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
+
+    Menu { focus-workspace 5 ; }
 }

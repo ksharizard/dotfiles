@@ -1,6 +1,7 @@
 input {
     touchpad {
         tap
+        accel-profile "flat"
         natural-scroll
     }
 

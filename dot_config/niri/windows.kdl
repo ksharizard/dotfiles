@@ -1,8 +1,12 @@
 workspace "browser"
 workspace "dev"
 workspace "media"
-workspace "game"
+workspace "social"
 workspace "misc"
+
+window-rule {
+    clip-to-geometry false
+}
 
 window-rule {
     match app-id=r#"^zen$"#
@@ -34,14 +38,20 @@ window-rule {
 
 window-rule {
     match app-id=r#"^BeeperTexts$"#
-    open-on-workspace "media"
+    open-on-workspace "social"
+}
+
+window-rule {
+    match app-id=r#"^signal$"#
+    open-on-workspace "social"
 }
 
 window-rule {
     match app-id=r#"^steam$"#
-    open-on-workspace "game"
+    open-on-workspace "social"
 }
 
+// PiP and videos in bottom-right floating
 window-rule {
     match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
@@ -54,4 +64,27 @@ window-rule {
     default-floating-position x=20 y=20 relative-to="bottom-right"
     default-column-width { fixed 640; }
     default-window-height { fixed 360; }
+}
+
+// Indicate screencasted windows with red colors.
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
 }

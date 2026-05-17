@@ -5,12 +5,7 @@ include "windows.kdl"
 include "layout.kdl"
 
 // Autostart
-spawn-at-startup "ironbar"
-spawn-at-startup "udiskie"
-spawn-at-startup "dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY"
-spawn-sh-at-startup "swaybg -i ~/pics/wal/static/black_purple_mountain.jpg"
-spawn-sh-at-startup "wlsunset -S 06:30 -s 22:00"
-spawn-sh-at-startup "docker compose -f /srv/docker/docker-compose.yaml up -d"
+// spawn-sh-at-startup "docker compose -f /srv/docker/docker-compose.yaml up -d"
 
 // Theme
 cursor {
