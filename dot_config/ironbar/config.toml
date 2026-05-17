@@ -1,5 +1,5 @@
 name = "bar"
-height = 21
+height = 20
 autohide = 200
 popup_autohide = true
 
@@ -8,11 +8,14 @@ popup_autohide = true
 # all_monitors = false
 
 # add launcher when it is fixed (right click menu bugs out)
-[[start]]
-type = "launcher"
-show_names = false
-show_icons = true
-reversed = false
+# [[start]]
+# type = "launcher"
+# show_names = false
+# show_icons = true
+# reversed = false
+
+[[center]]
+type = "music"
 
 [[end]]
 type = "tray"
@@ -33,6 +36,21 @@ scrollable = false
 [[end]]
 type = "battery"
 format = "{percentage}%"
+
+[[end]]
+type = "brightness"
+format = "{percentage}%"
+smooth_scroll_speed = 0.5
+
+[end.profiles.low]
+when = 25
+format = "{percentage}%"
+icon_label = ""
+
+[end.profiles.high]
+when = 100
+format = "{percentage}%"
+icon_label = ""
 
 [[end]]
 type = "volume"
