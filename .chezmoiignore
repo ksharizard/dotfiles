@@ -15,6 +15,7 @@ Documents/
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
+.config/aerc
 .config/btop
 .config/dunst
 .config/feh
@@ -44,8 +45,10 @@ Documents/
 .config/yazi
 .config/ytfzf
 .config/yt-x
+.config/zathura
 .config/zsh
 .config/wgetrc
+.config/isyncrc.example
 .config/mimeapps.list
 .config/user-dirs.dirs
 .config/wgetrc
