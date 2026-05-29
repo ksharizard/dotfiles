@@ -1,4 +1,5 @@
 #!/bin/bash
+# Credits: https://github.com/nocturover/bw-ssh-fetch/blob/main/bw-ssh-fetch.sh
 
 # 🔐 Automatically fetch an SSH private key from Bitwarden and save it to ~/.ssh
 # Usage: ./bw-ssh-fetch.sh "search_keyword"
@@ -9,7 +10,6 @@ SEARCH_TERM="$1"
 if ! command -v bw &>/dev/null; then
   echo "❌ Bitwarden CLI (bw) is not installed."
   echo "🔍 Download: https://bitwarden.com/download/?app=cli&platform=linux"
-  echo "🚧 Install via Snap (if available): sudo snap install bw"
   exit 1
 fi
 
@@ -30,30 +30,29 @@ fi
 AUTH_STATUS=$(bw status 2>/dev/null | jq -r '.status')
 
 if [ "$AUTH_STATUS" == "unauthenticated" ]; then
-  echo "🔑 Bitwarden 로그인이 필요합니다. 로그인 절차를 시작합니다..."
+  echo "🔑 Bitwarden login is required. Starting login process..."
   bw login || {
-    echo "❌ 로그인 실패"
+    echo "❌ Login failed"
     exit 1
   }
-  echo "🔓 로그인 후 vault unlock 중... 마스터 비밀번호를 입력하세요."
+  echo "🔓 Unlocking vault after login... Please enter your master password."
   export BW_SESSION=$(bw unlock --raw)
 elif [ "$AUTH_STATUS" == "locked" ]; then
-  echo "🔓 Bitwarden vault가 잠겨 있습니다. 마스터 비밀번호를 입력하세요."
+  echo "🔓 Bitwarden vault is locked. Please enter your master password."
   export BW_SESSION=$(bw unlock --raw)
 elif [ "$AUTH_STATUS" == "unlocked" ]; then
   export BW_SESSION=$(bw unlock --raw)
 else
-  echo "❌ Bitwarden 상태 확인 실패. CLI 버전 문제일 수 있습니다."
+  echo "❌ Failed to check Bitwarden status. This might be a CLI version issue."
   exit 1
 fi
 
 # ✅ 4. Sync vault
-echo "🔄 Bitwarden vault를 동기화합니다..."
+echo "🔄 Syncing Bitwarden vault..."
 bw sync --session "$BW_SESSION" >/dev/null || {
-  echo "❌ sync 실패"
+  echo "❌ Sync failed"
   exit 1
 }
-
 # ✅ 5. Search for items
 echo "🔍 Searching items with keyword '$SEARCH_TERM'..."
 ITEMS_JSON=$(bw list items --search "$SEARCH_TERM" --session "$BW_SESSION" 2>/dev/null)

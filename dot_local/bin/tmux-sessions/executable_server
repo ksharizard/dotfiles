@@ -1,0 +1,27 @@
+#!/bin/bash
+MOUNT_POINT="/mnt/EXTDRIVE"
+DEVICE="/dev/sdb1"
+COMPOSE="/srv/docker/docker-compose.yaml"
+SESSION="server"
+
+mkdir -p $MOUNT_POINT
+
+# Wait for up to 1 minute for the device to be mounted
+timeout=60
+elapsed=0
+
+while ! mountpoint -q "$MOUNT_POINT"; do
+    if [ $elapsed -ge $timeout ]; then
+        echo "Timed out waiting for $DEVICE to be mounted to $MOUNT_POINT" >&2
+        exit 1
+    fi
+
+    echo "Waiting for $DEVICE to be mounted to $MOUNT_POINT..."
+    sleep 1
+    ((elapsed++))
+done
+
+tmux has-session -t $SESSION 2>/dev/null
+if [ $? != 0 ]; then
+  tmux new-session -d -s $SESSION -n docker "docker compose -f ${COMPOSE} up -d; $SHELL"
+fi

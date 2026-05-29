@@ -1,4 +1,4 @@
-paru -S spotify-launcher spietify-cli spicetify-marketplace-bin
+yay -S --noconfirm spotify-launcher spietify-cli spicetify-marketplace-bin
 
 sed -i "s|^\(spotify_path\s*=\s*\).*|\1$HOME/.local/share/spotify-launcher/install/usr/share/spotify/|" config-xpui.ini
 

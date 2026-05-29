@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-# sbctl-batch-sign is a helper script designed to make it easier for users to sign files needed for secure boot support.
-# The obvious case in which this script helps a lot is when dual booting Windows as there are a lot of files by Windows that
-# needs to be signed in EFI.
-
+# Credits: https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/bin/sbctl-batch-sign
+# Added tpm sign in support
 set -e
 
 if [ -f /boot/limine.conf ]; then
@@ -17,8 +15,8 @@ fi
 
 export ESP_PATH=/boot/
 
-# sudo sbctl create-keys
-# sudo sbctl enroll-keys --microsoft
+sudo sbctl create-keys
+sudo sbctl enroll-keys --microsoft
 
 sbctl verify 2>/dev/null | awk '/✗/ {print $2}' | while IFS= read -r entry; do
   # We expect users who use this script to enroll their
@@ -33,8 +31,9 @@ sbctl verify 2>/dev/null | awk '/✗/ {print $2}' | while IFS= read -r entry; do
 done
 
 sbctl status
+
 # TPM sign in
-# systemd-cryptenroll /dev/sda2 --recovery-key
-# systemd-cryptenroll /dev/sda2 --wipe-slot=empty --tpm2-device=auto --tpm2-pcrs=7+15:sha256=0000000000000000000000000000000000000000000000000000000000000000
-# Replace sda2 with encrypted partition
-#
+echo "TPM Sign-in"
+read -p "Enter your encryped parition name (Ex. - /dev/nvme0n1p4): " partition
+systemd-cryptenroll $partition --recovery-key
+systemd-cryptenroll $partition --wipe-slot=empty --tpm2-device=auto --tpm2-pcrs=7+15:sha256=0000000000000000000000000000000000000000000000000000000000000000

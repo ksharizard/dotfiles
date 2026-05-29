@@ -1,0 +1,11 @@
+#!/bin/bash
+SESSION="bar"
+
+tmux has-session -t $SESSION 2>/dev/null
+if [ $? != 0 ]; then
+  tmux new-session -d -s $SESSION -n clock "clocktemp -df dd/mm; $SHELL"
+  tmux new-window -t $SESSION:2 -n vol "wiremix; $SHELL"
+  tmux new-window -t $SESSION:3 -n bt "bluetui; $SHELL"
+  tmux new-window -t $SESSION:4 -n net "iwctl; $SHELL"
+  tmux new-window -t $SESSION:5 -n bat "jolt; $SHELL"
+fi

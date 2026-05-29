@@ -1,4 +1,5 @@
 #!/bin/bash
+# Credits: https://bbs.archlinux.org/viewtopic.php?pid=2079504#p2079504
 
 read -p "What's your sound card? Form /dev/snd/hwCxDx": card
 
