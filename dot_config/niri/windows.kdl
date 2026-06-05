@@ -51,6 +51,12 @@ window-rule {
     open-on-workspace "social"
 }
 
+window-rule {
+    match title=r#"^bar.*$"#
+    open-on-workspace "misc"
+}
+
+
 // PiP and videos in bottom-right floating
 window-rule {
     match app-id=r#"zen$"# title="^Picture-in-Picture$"

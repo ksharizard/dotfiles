@@ -13,7 +13,7 @@ cursor {
     xcursor-size 18
 }
 
-screenshot-path "~/pics/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/pics/Screenshots/%Y-%m/%Y-%m-%d %H-%M-%S.png"
 
 // No window decorations
 prefer-no-csd
